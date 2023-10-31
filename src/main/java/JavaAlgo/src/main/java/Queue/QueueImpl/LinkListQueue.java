@@ -33,6 +33,9 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
 
     @Override
     public boolean offer(E value) {
+        Node<E> head = new Node<>(null, null);
+
+
         return false;
     }
 
