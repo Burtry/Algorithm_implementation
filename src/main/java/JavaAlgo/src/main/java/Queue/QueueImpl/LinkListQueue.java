@@ -16,7 +16,7 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
      * @param <E> 元素类型
      */
     private static class Node<E> {
-        //元素
+        //保存值的属性
         E value;
         //指向下一节点
         Node<E> next;
@@ -27,16 +27,27 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
             this.next = next;
         }
     }
+    //头结点head  首先指向哨兵结点;
+    Node<E> head = new Node<>(null,null);
+
+    //尾结点tail  首先指向哨兵节点;
+    Node<E> tail = head;
+
+    //在构造方法里面，让tail.next 指向 head 来达成环形(环形链表，尾指向头部)
 
 
-
+    public LinkListQueue() {
+        tail.next = head;
+    }
 
     @Override
     public boolean offer(E value) {
-        Node<E> head = new Node<>(null, null);
+        Node<E> eNode = new Node<>(value, head);
+        tail.next = eNode;
+        //新节点作为新的tail
+        tail = eNode;
 
-
-        return false;
+        return true;
     }
 
     @Override
@@ -54,8 +65,23 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
         return false;
     }
 
+    //迭代器
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new Iterator<E>() {
+            Node<E> p = head.next;
+            @Override
+            public boolean hasNext() {
+                //p不是头结点的时候可以继续往下循环
+                return p !=head;
+            }
+
+            @Override
+            public E next() {
+                E value = p.value;
+                p = p.next;
+                return value;
+            }
+        };
     }
 }
