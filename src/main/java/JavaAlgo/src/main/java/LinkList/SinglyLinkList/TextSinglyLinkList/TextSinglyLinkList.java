@@ -1,7 +1,10 @@
 package JavaAlgo.src.main.java.LinkList.SinglyLinkList.TextSinglyLinkList;
 
 import JavaAlgo.src.main.java.LinkList.SinglyLinkList.SinglyLinkList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 public class TextSinglyLinkList {
 
@@ -30,5 +33,19 @@ public class TextSinglyLinkList {
         for (Integer value : singlyLinkList) {
             System.out.println(value);
         }
+    }
+
+    @Test
+    public void text3() {
+        SinglyLinkList singlyLinkList = new SinglyLinkList();
+        singlyLinkList.addLast(1);
+        singlyLinkList.addLast(2);
+        singlyLinkList.addLast(3);
+
+        singlyLinkList.insert(2,4);
+        for (Integer i : singlyLinkList) {
+            System.out.println(i);
+        }
+
     }
 }

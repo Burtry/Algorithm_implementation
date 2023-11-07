@@ -74,11 +74,50 @@ public class SinglyLinkList implements Iterable<Integer>{
 
 ```
 
-### 注意事项
+#### 注意事项
 
 **1.写内部类时，何时加static，何时不加static?**
 
 ​	当某一个内部类使用了外部类的一个成员变量时，就不能用static
+
+
+
+### 单链表尾插不带头结点
+
+首先找到最后一个结点
+
+```
+//查找最后一个节点
+private Node findLast(){
+    if(head ==null){//空链表
+        return null;
+    }
+    Node p = head;
+    while (p.next != null){
+        p = p.next;
+    }
+    return p;
+}
+```
+
+再向最后的节点后添加节点
+
+```
+public void addLast(int value) {
+    Node last = findLast();
+    if(last ==null) {
+        addFirst(value);
+        return;
+    }
+    last.next = new Node(value,null);
+}
+```
+
+#### 注意事项
+
+无
+
+
 
 
 
