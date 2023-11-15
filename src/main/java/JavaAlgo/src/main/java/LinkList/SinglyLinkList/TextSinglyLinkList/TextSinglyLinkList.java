@@ -92,6 +92,7 @@ public class TextSinglyLinkList {
         singlyListSentinel.removeFirst();
         assertIterableEquals(List.of(),singlyListSentinel);
         assertThrows(IllegalArgumentException.class,singlyListSentinel::removeFirst);
+        //assertThrows(IllegalArgumentException.class,);
 
         assertThrows(IllegalArgumentException.class,()->singlyListSentinel.remove(5));
         assertThrows(IllegalArgumentException.class,()->singlyListSentinel.remove(7));
