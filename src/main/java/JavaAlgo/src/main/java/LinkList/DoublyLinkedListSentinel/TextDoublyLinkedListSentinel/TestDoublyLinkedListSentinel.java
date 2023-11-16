@@ -1,6 +1,7 @@
 package JavaAlgo.src.main.java.LinkList.DoublyLinkedListSentinel.TextDoublyLinkedListSentinel;
 
 import JavaAlgo.src.main.java.LinkList.DoublyLinkedListSentinel.DoublyLinkedListSentinel;
+import JavaAlgo.src.main.java.LinkList.DoublyLinkedListSentinel.DoublyLinkedListSentinelRing;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -28,6 +29,17 @@ class TestDoublyLinkedListSentinel {
         list.addFirst(3);
         list.addFirst(4);
         assertIterableEquals(List.of(4, 3, 2, 1), list);
+
+    }
+
+    //初始化双向链表
+    private DoublyLinkedListSentinel getList() {
+        DoublyLinkedListSentinel list = new DoublyLinkedListSentinel();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        return list;
     }
 
     @Test
@@ -48,15 +60,6 @@ class TestDoublyLinkedListSentinel {
     void addLast() {
         DoublyLinkedListSentinel list = getList();
         assertIterableEquals(List.of(1, 2, 3, 4), list);
-    }
-
-    private DoublyLinkedListSentinel getList() {
-        DoublyLinkedListSentinel list = new DoublyLinkedListSentinel();
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(3);
-        list.addLast(4);
-        return list;
     }
 
     @Test
@@ -92,5 +95,36 @@ class TestDoublyLinkedListSentinel {
 
         DoublyLinkedListSentinel list2 = new DoublyLinkedListSentinel();
         assertThrows(IllegalArgumentException.class, () -> list2.remove(0));
+    }
+
+
+    /*-------------------------------------------------------------------------------------------*/
+
+    @Test
+    void addFirstSing() {
+        DoublyLinkedListSentinelRing list = new DoublyLinkedListSentinelRing();
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3);
+        list.addFirst(4);
+        assertIterableEquals(List.of(4, 3, 2, 1), list);
+
+    }
+
+
+    //初始化双向环形链表
+    private DoublyLinkedListSentinelRing getListSing() {
+        DoublyLinkedListSentinelRing list = new DoublyLinkedListSentinelRing();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        return list;
+    }
+
+    @Test
+    void addLastSing() {
+        DoublyLinkedListSentinelRing list = getListSing();
+        assertIterableEquals(List.of(1, 2, 3, 4), list);
     }
 }
