@@ -127,4 +127,46 @@ class TestDoublyLinkedListSentinel {
         DoublyLinkedListSentinelRing list = getListSing();
         assertIterableEquals(List.of(1, 2, 3, 4), list);
     }
+
+
+    @Test
+    void removeFirstSing() {
+        DoublyLinkedListSentinelRing list = getListSing();
+        list.removeFirst();
+        assertIterableEquals(List.of(2, 3, 4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(3, 4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(4), list);
+        list.removeFirst();
+        assertIterableEquals(List.of(), list);
+        assertThrows(IllegalArgumentException.class, list::removeFirst);
+    }
+
+    @Test
+    void removeLastSing() {
+        DoublyLinkedListSentinelRing list = getListSing();
+        list.removeLast();
+        assertIterableEquals(List.of(1, 2, 3), list);
+        list.removeLast();
+        assertIterableEquals(List.of(1, 2), list);
+        list.removeLast();
+        assertIterableEquals(List.of(1), list);
+        list.removeLast();
+        assertIterableEquals(List.of(), list);
+        assertThrows(IllegalArgumentException.class, list::removeLast);
+    }
+
+    @Test
+    void removeByValue() {
+        DoublyLinkedListSentinelRing listSing = getListSing();
+        listSing.removeByValue(2);
+        assertIterableEquals(List.of(1,3,4),listSing);
+        listSing.removeByValue(1);
+        assertIterableEquals(List.of(3,4), listSing);
+
+        listSing.removeByValue(6);
+        assertIterableEquals(List.of(3,4), listSing);
+
+    }
 }

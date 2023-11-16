@@ -58,13 +58,64 @@ public class DoublyLinkedListSentinelRing implements Iterable<Integer>{
         b.prev = added;
     }
 
+    /**
+     * 删除头部
+     */
+    public void removeFirst() {
+        Node removed = sentinel.next;
+        if (removed == sentinel) {
+            throw new IllegalArgumentException("非法");
+        }
+        Node a = removed.prev;
+        Node b = removed.next;
+        a.next = b;
+        b.prev = a;
+
+    }
+
+    /**
+     * 删除尾部
+     */
+    public void removeLast() {
+        Node removed = sentinel.prev;
+        if (removed == sentinel) {
+            throw new IllegalArgumentException("异常");
+        }
+        Node b = removed.prev;
+        Node a = sentinel;
+
+        b.next = a;
+        a.prev = b;
+
+    }
 
 
+    /**
+     * 根据值删除节点
+     * @param value 待删除的值
+     */
+    public void removeByValue(Integer value) {
+        Node removed = findValue(value);
+        if (removed == null) {
+            return; //不用删
+        }
+        //找到了
+        Node a = removed.prev;
+        Node b = removed.next;
+        a.next = b;
+        b.prev = a;
+    }
 
-
-
-
-
+    private Node findValue(Integer value) {
+        Node p = sentinel.next;
+        while (p != sentinel) {
+            if (p.value == value) {
+                return p;
+            }
+            p = p.next;
+        }
+        return null;
+    }
 
 
     //迭代器
