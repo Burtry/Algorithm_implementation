@@ -62,6 +62,23 @@ public class SinglyLinkList implements Iterable<Integer>{
         };
     }
 
+
+    //递归遍历
+
+    public void loop3(Consumer<Integer> before, Consumer<Integer> after) {
+        recursion(head, before, after);
+    }
+
+    private void recursion(Node curr,
+                   Consumer<Integer> before, Consumer<Integer> after) {
+        if (curr == null) {
+            return;
+        }
+        before.accept(curr.value);
+        recursion(curr.next, before, after);
+        after.accept(curr.value);
+    }
+
     /**
      * 向链表尾部添加
      * @param value 待添加值

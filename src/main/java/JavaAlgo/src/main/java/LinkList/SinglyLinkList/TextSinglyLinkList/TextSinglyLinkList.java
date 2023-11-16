@@ -56,10 +56,11 @@ public class TextSinglyLinkList {
         singlyLinkList.addLast(2);
         singlyLinkList.addLast(3);
 
-        singlyLinkList.insert(2,4);
-        for (Integer i : singlyLinkList) {
-            System.out.println(i);
-        }
+        singlyLinkList.loop3(value -> {
+            System.out.println("before" + value);
+        },value -> {
+            System.out.println("after" + value);
+        });
 
     }
 
@@ -98,4 +99,7 @@ public class TextSinglyLinkList {
         assertThrows(IllegalArgumentException.class,()->singlyListSentinel.remove(7));
 
     }
+
+
+
 }
