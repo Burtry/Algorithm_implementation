@@ -19,8 +19,6 @@ public class TextSinglyLinkList {
         singlyLinkList.addLast(4);
         return singlyLinkList;
     }
-
-
     @Test
     public void text1() {
         SinglyLinkList singlyLinkList = new SinglyLinkList();
