@@ -27,15 +27,19 @@ public class BubbleSort {
             return;
         }
 
+        int x =0;   //x作为标记，当执行到最后一次交换后，x后是有序的，x前无序。减少递归次数。
+
         for (int i = 0; i < j; i++) {
             if (arr[i] > arr[i + 1]) {
                 int temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
+                //一旦发生叫喊将i的值赋值给x
+                x = i;
             }
         }
         //递归调用
-        fun(arr, j-1);
+        fun(arr, x);
     }
 
 }
