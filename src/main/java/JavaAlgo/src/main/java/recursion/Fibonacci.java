@@ -2,6 +2,11 @@ package JavaAlgo.src.main.java.recursion;
 
 /**
  * 递归实现斐波那契数列
+ *
+ */
+
+/**
+ * 斐波那契数列的递归次数： 2* fun(n+1) -1
  */
 public class Fibonacci {
 
