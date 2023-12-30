@@ -29,10 +29,10 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
     }
 
     //头结点head  首先指向哨兵结点;
-    Node<E> head = new Node<>(null,null);
+    private final Node<E> head = new Node<>(null,null);
     //尾结点tail  首先指向哨兵节点;
     Node<E> tail = head;
-    private int size;   //节点数
+    int size = 0;   //节点数
     private int capacity = Integer.MAX_VALUE;   //容量
 
     //在构造方法里面，让tail.next 指向 head 来达成环形(环形链表，尾指向头部)
@@ -72,7 +72,7 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
         Node<E> first = head.next;
         head.next = first.next;     //将头结点直线first的下一个节点，逻辑上就把first从队列中删除了。
         //判断如果是队列中只剩最后一个元素,tail要指向head
-        if(head.next == tail) {
+        if(first == tail) {
             tail = head;
         }
         size--;
