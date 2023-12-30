@@ -28,7 +28,7 @@ public interface Queue<E> {
      */
     boolean isEmpty();
 
-    /**
+                                                                                                                                                                                         /**
      * 检查队列已满
      * @return 满 true 否则 false
      */
