@@ -1,10 +1,7 @@
 package LeetCode.src.main.java.Text_algorithm;
 
-import JavaAlgo.src.main.java.Queue.QueueImpl.LinkListQueue;
-import JavaAlgo.src.main.java.Queue.TextQueue.LinkedListQueue;
+import JavaAlgo.src.main.java.datastructure.queue.QueueImpl.LinkListQueue;
 import LeetCode.src.main.java.Text_algorithm.Node.TreeNode;
-
-import java.util.concurrent.LinkedTransferQueue;
 
 /**
  * 二叉树层序遍历
@@ -28,17 +25,26 @@ public class LeetCode102 {
 
         LinkListQueue<TreeNode> queue = new LinkListQueue<>();
         queue.offer(root);
-
+        int c1 = 1; //当前层的节点数
         while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            System.out.println(node);
-            if (node.left != null) {
-                queue.offer(node.left);
-            }
+            int c2 = 0; //下一层节点数
+            for (int i = 0; i < c1; i++) {
+                TreeNode node = queue.poll();
+                System.out.print(node + " ");
+                if (node.left != null) {
+                    queue.offer(node.left);
+                    c2++;
+                }
 
-            if (node.right != null) {
-                queue.offer(node.right);
+                if (node.right != null) {
+                    queue.offer(node.right);
+                    c2++;
+                }
             }
+            //换行
+            System.out.println();
+            c1 = c2;
+
         }
     }
 }

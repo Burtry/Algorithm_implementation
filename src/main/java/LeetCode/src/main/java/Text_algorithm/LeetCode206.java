@@ -1,5 +1,5 @@
 package LeetCode.src.main.java.Text_algorithm;
-import LeetCode.src.main.java.Text.ListNode;
+import LeetCode.src.main.java.Text_algorithm.Node.ListNode;
 
 
 /**

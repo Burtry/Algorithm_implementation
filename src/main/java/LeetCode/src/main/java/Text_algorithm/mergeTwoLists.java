@@ -1,13 +1,8 @@
 package LeetCode.src.main.java.Text_algorithm;
 
+import LeetCode.src.main.java.Text_algorithm.Node.ListNode;
+
 //合并两个升序的链表
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-     ListNode(int val) { this.val = val; }
-     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-  }
 public class mergeTwoLists {
     public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
         //创建一个伪头结点
