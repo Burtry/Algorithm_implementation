@@ -1,4 +1,4 @@
-package LeetCode.src.main.java.leetcode;
+package JavaAlgo.src.main.java.algorithm;
 
 import java.util.Arrays;
 
