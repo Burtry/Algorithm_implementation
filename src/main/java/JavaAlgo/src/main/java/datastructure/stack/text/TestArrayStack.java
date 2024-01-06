@@ -34,12 +34,27 @@ public class TestArrayStack {
 
     @Test
     public void pop2() {
+        // 创建一个ArrayStack对象，容量为3
         ArrayStack<Object> stack = new ArrayStack<>(3);
+
+        // 向栈中添加元素1、2和3
         stack.push(1);
         stack.push(2);
         stack.push(3);
+
+        // 弹出栈顶元素3
         assertEquals(3, stack.pop());
+
+        // 向栈中添加元素4
         stack.push(4);
+
+        // 检查栈中的元素顺序是否为4、2和1
         assertIterableEquals(List.of(4, 2, 1), stack);
     }
+
+
+
+
+
+
 }
