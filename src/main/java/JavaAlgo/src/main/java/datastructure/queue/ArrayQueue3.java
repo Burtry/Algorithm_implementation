@@ -1,4 +1,4 @@
-package JavaAlgo.src.main.java.datastructure.queue.QueueImpl;
+package JavaAlgo.src.main.java.datastructure.queue;
 
 import JavaAlgo.src.main.java.datastructure.queue.Queue;
 

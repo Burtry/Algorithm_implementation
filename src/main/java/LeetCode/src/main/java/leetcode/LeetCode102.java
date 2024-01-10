@@ -1,6 +1,6 @@
 package LeetCode.src.main.java.leetcode;
 
-import JavaAlgo.src.main.java.datastructure.queue.QueueImpl.LinkListQueue;
+import JavaAlgo.src.main.java.datastructure.queue.LinkListQueue;
 import LeetCode.src.main.java.leetcode.Node.TreeNode;
 
 /**

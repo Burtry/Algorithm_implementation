@@ -1,24 +1,23 @@
-package JavaAlgo.src.main.java.datastructure.queue.QueueImpl;
+package JavaAlgo.src.main.java.datastructure.queue;
 
 import JavaAlgo.src.main.java.datastructure.queue.Queue;
 
 import java.util.Iterator;
 
 /**
- * 用 size 辅助判断空满
+ * 仅用 head, tail 判断空满, head, tail 即为索引值, tail 停下来的位置不存储元素
  *
  * @param <E> 队列中元素类型
  */
-public class ArrayQueue2<E> implements Queue<E>, Iterable<E> {
+public class ArrayQueue1<E> implements Queue<E>, Iterable<E> {
 
     private final E[] array;
     private int head = 0;
     private int tail = 0;
-    private int size = 0; // 元素个数
 
     @SuppressWarnings("all")
-    public ArrayQueue2(int capacity) {
-        array = (E[]) new Object[capacity];
+    public ArrayQueue1(int capacity) {
+        array = (E[]) new Object[capacity + 1];
     }
 
     @Override
@@ -28,7 +27,6 @@ public class ArrayQueue2<E> implements Queue<E>, Iterable<E> {
         }
         array[tail] = value;
         tail = (tail + 1) % array.length;
-        size++;
         return true;
     }
 
@@ -40,7 +38,6 @@ public class ArrayQueue2<E> implements Queue<E>, Iterable<E> {
         E value = array[head];
         array[head] = null; // help GC
         head = (head + 1) % array.length;
-        size--;
         return value;
     }
 
@@ -54,32 +51,31 @@ public class ArrayQueue2<E> implements Queue<E>, Iterable<E> {
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return head == tail;
     }
 
     @Override
     public boolean isFull() {
-        return size == array.length;
+        return (tail + 1) % array.length == head;
     }
 
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             int p = head;
-            int count = 0;
 
             @Override
             public boolean hasNext() {
-                return count < size;
+                return p != tail;
             }
 
             @Override
             public E next() {
                 E value = array[p];
                 p = (p + 1) % array.length;
-                count++;
                 return value;
             }
         };
     }
 }
+
