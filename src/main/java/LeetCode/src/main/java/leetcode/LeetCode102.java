@@ -1,6 +1,6 @@
 package LeetCode.src.main.java.leetcode;
 
-import JavaAlgo.src.main.java.datastructure.queue.LinkListQueue;
+import JavaAlgo.src.main.java.datastructure.queue.LinkedListQueue;
 import LeetCode.src.main.java.leetcode.Node.TreeNode;
 
 /**
@@ -23,7 +23,7 @@ public class LeetCode102 {
 
         );
 
-        LinkListQueue<TreeNode> queue = new LinkListQueue<>();
+        LinkedListQueue<TreeNode> queue = new LinkedListQueue<>();
         queue.offer(root);
         int c1 = 1; //当前层的节点数
         while (!queue.isEmpty()) {

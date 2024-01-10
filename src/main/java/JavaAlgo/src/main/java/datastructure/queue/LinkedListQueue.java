@@ -1,15 +1,13 @@
 package JavaAlgo.src.main.java.datastructure.queue;
 
 
-import JavaAlgo.src.main.java.datastructure.queue.Queue;
-
 import java.util.Iterator;
 
 /**
  * 单向环形带哨兵的链表方式实现队列
  * @param <E>
  */
-public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
+public class LinkedListQueue<E> implements Queue<E>,Iterable<E>{
 
     /**
      * 定义节点类
@@ -41,10 +39,10 @@ public class LinkListQueue<E> implements Queue<E>,Iterable<E>{
         tail.next = head;
     }
 
-    public LinkListQueue() {}
+    public LinkedListQueue() {}
 
     //带惨构造，指定队列容量否则没有限制
-    public LinkListQueue(int capacity) {
+    public LinkedListQueue(int capacity) {
         this.capacity = capacity;
     }
 

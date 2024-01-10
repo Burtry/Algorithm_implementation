@@ -1,6 +1,7 @@
 package LeetCode.src.main.java.leetcode;
 
-import JavaAlgo.src.main.java.datastructure.queue.TextQueue.LinkedListQueue;
+
+import JavaAlgo.src.main.java.datastructure.queue.LinkedListQueue;
 
 /**
  * 单队列模拟栈
