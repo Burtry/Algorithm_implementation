@@ -12,8 +12,10 @@ public class LeetCode225 {
 
     public void push(int x) {
 
+        //先向对列添加元素
         queue.offer(x);
         for (int i = 0; i < size; i++) {
+            //从队列头部删除元素并添加到队列尾部
             queue.offer(queue.poll());
         }
         size++;
