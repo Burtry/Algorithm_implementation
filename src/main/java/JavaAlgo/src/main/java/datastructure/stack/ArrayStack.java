@@ -29,7 +29,9 @@ public class ArrayStack<E> implements Stack<E>,Iterable<E>{
         }
   /*      E value = array[top - 1];
         top--;*/
-        return array[-- top];
+        E e = array[--top];
+        array[top] = null; // help GC
+        return e;
     }
 
     @Override
