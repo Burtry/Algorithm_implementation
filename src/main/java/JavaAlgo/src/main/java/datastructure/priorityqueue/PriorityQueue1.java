@@ -51,6 +51,7 @@ public class PriorityQueue1<E extends Priority> implements Queue<E> {
         int max = selectMax();
         E e = (E) array[max];
         remove(max);
+        array[--size] = null;   //help GC
         return e;
 
     }
