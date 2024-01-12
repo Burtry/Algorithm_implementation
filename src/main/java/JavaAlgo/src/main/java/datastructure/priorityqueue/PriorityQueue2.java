@@ -3,7 +3,7 @@ package JavaAlgo.src.main.java.datastructure.priorityqueue;
 import JavaAlgo.src.main.java.datastructure.queue.Queue;
 
 /**
- * 基于无序数组实现优先队列
+ * 基于有序数组实现优先队列
  */
 public class PriorityQueue2<E extends Priority> implements Queue<E> {
 
