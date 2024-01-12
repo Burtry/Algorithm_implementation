@@ -5,12 +5,12 @@ import JavaAlgo.src.main.java.datastructure.queue.Queue;
 /**
  * 基于无序数组实现优先队列
  */
-public class PriorityQueue<E extends Priority> implements Queue<E> {
+public class PriorityQueue1<E extends Priority> implements Queue<E> {
 
     Priority[] array;
     int size;
 
-    public PriorityQueue(int capacity) {
+    public PriorityQueue1(int capacity) {
         array = new Priority[capacity];
     }
 
