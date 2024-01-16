@@ -1,7 +1,5 @@
 package LeetCode.src.main.java.leetcode;
 
-import JavaAlgo.src.main.java.datastructure.priorityqueue.Priority;
-import JavaAlgo.src.main.java.datastructure.queue.Queue;
 import LeetCode.src.main.java.leetcode.Node.ListNode;
 
 /**
