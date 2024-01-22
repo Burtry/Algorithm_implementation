@@ -1,5 +1,7 @@
 package JavaAlgo.src.main.java.datastructure.heap;
 
+import java.util.Arrays;
+
 public class MaxHeap {
     private int[] array;
     private int size;
@@ -7,6 +9,14 @@ public class MaxHeap {
     //初始化堆
     public MaxHeap(int capacity) {
         this.array = new int[capacity];
+    }
+
+    //构造方法,将传来的数组以大顶堆的方式进行建堆
+    public MaxHeap(int[] array) {
+        this.array = array;
+        this.size = array.length;
+        //建堆
+        heapify();
     }
 
     //建堆
@@ -23,7 +33,21 @@ public class MaxHeap {
 
     // 将 parent 索引处的元素下潜: 与两个孩子较大者交换, 直至没孩子或孩子没它大
     private void down(int parent) {
-
+        int left = parent * 2 + 1;
+        int right = left + 1;
+        int max = parent;
+        if (left < size && array[left] > array[max]) {
+            max = left;
+        }
+        if (right < size && array[right] > array[max]) {
+            max = right;
+        }
+        if (max != parent) {
+            //其中的一个孩子比父亲大,将两者进行交换
+            swap(max,parent);
+            //继续下潜
+            down(max);
+        }
     }
 
     // 将 offered 元素上浮: 直至 offered 小于父元素或到堆顶
@@ -31,13 +55,17 @@ public class MaxHeap {
 
     }
 
-
-
     // 交换两个索引处的元素
     private void swap(int i, int j) {
         int t = array[i];
         array[i] = array[j];
         array[j] = t;
+        /*
+        或者
+        i = i^j;
+        j = i^j;
+        i = i^j;
+         */
     }
 
 
@@ -85,5 +113,11 @@ public class MaxHeap {
      */
     public void offer(int offered) {
 
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,6,7};
+        MaxHeap maxHeap = new MaxHeap(arr);
+        System.out.println(Arrays.toString(maxHeap.array));
     }
 }
