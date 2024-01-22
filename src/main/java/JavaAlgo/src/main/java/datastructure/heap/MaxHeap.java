@@ -26,10 +26,64 @@ public class MaxHeap {
 
     }
 
+    // 将 offered 元素上浮: 直至 offered 小于父元素或到堆顶
+    private void up(int offered, int index) {
+
+    }
+
+
+
     // 交换两个索引处的元素
     private void swap(int i, int j) {
         int t = array[i];
         array[i] = array[j];
         array[j] = t;
+    }
+
+
+    /**
+     * 获取堆顶元素
+     *
+     * @return 堆顶元素
+     */
+    public int peek() {
+        return array[0];
+    }
+
+    /**
+     * 删除堆顶元素
+     *
+     * @return 堆顶元素
+     */
+    public int poll() {
+        return 0;
+    }
+
+    /**
+     * 删除指定索引处元素
+     *
+     * @param index 索引
+     * @return 被删除元素
+     */
+    public int poll(int index) {
+        return 0;
+    }
+
+    /**
+     * 替换堆顶元素
+     *
+     * @param replaced 新元素
+     */
+    public void replace(int replaced) {
+
+    }
+
+    /**
+     * 堆的尾部添加元素
+     *
+     * @param offered 新元素
+     */
+    public void offer(int offered) {
+
     }
 }
