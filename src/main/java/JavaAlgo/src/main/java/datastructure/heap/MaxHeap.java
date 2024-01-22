@@ -49,12 +49,6 @@ public class MaxHeap {
             down(max);
         }
     }
-
-    // 将 offered 元素上浮: 直至 offered 小于父元素或到堆顶
-    private void up(int offered, int index) {
-
-    }
-
     // 交换两个索引处的元素
     private void swap(int i, int j) {
         int t = array[i];
@@ -74,8 +68,12 @@ public class MaxHeap {
      *
      * @return 堆顶元素
      */
-    public int peek() {
-        return array[0];
+    public Integer peek() {
+        if (size == 0) {
+            return null;
+        }else {
+            return array[0];
+        }
     }
 
     /**
@@ -84,7 +82,12 @@ public class MaxHeap {
      * @return 堆顶元素
      */
     public int poll() {
-        return 0;
+        int top = array[0];
+        swap(0,size - 1);
+        //先进行size--,然后再下潜
+        size--;
+        down(0);
+        return top;
     }
 
     /**
@@ -94,7 +97,11 @@ public class MaxHeap {
      * @return 被删除元素
      */
     public int poll(int index) {
-        return 0;
+        int deleted = array[index];
+        swap(index, size - 1);
+        size--;
+        down(index);
+        return deleted;
     }
 
     /**
@@ -103,7 +110,8 @@ public class MaxHeap {
      * @param replaced 新元素
      */
     public void replace(int replaced) {
-
+        array[0] = replaced;
+        down(0);
     }
 
     /**
@@ -111,8 +119,28 @@ public class MaxHeap {
      *
      * @param offered 新元素
      */
-    public void offer(int offered) {
+    public boolean offer(int offered) {
+        if (size == array.length) {
+            return false;
+        }
+        up(offered);
+        size++;
+        return true;
+    }
 
+    // 将 offered 元素上浮: 直至 offered 小于父元素或到堆顶
+    private void up(int offered) {
+        int child = size;
+        while (child > 0) {
+            int parent = (child - 1) / 2;
+            if (offered > array[parent]) {
+                array[child] = array[parent];
+            } else {
+                break;
+            }
+            child = parent;
+        }
+        array[child] = offered;
     }
 
     public static void main(String[] args) {
