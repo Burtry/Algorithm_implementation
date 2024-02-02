@@ -2,7 +2,7 @@ package JavaAlgo.src.main.java.datastructure.heap;
 
 import java.util.Arrays;
 
-//将传进来的数组进行堆排序
+//将传进来的数组以小顶堆进行堆排序
 public class HeapSort {
 
     private static void sort(int[] arr) {
