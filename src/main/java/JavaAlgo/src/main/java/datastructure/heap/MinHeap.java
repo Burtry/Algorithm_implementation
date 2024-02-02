@@ -3,7 +3,7 @@ package JavaAlgo.src.main.java.datastructure.heap;
 import java.util.Arrays;
 
 /**
- * 顶堆实现思路:
+ * 小顶堆实现思路:
  * 1.首先创建数组用来模拟堆的实现,并且进行初始化
  * 2.建堆(heapify)的实现
  * 3.建堆的实现中需要进行下潜(down)实现
