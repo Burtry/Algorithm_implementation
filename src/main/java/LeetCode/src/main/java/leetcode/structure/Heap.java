@@ -3,7 +3,9 @@ package LeetCode.src.main.java.leetcode.structure;
 import java.util.Arrays;
 
 /**
+ *
  * 可以扩容的 heap, max 用于指定是大顶堆还是小顶堆
+ *
  */
 public class Heap {
     public int[] array;
