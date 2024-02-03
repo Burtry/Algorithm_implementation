@@ -32,6 +32,10 @@ public class MinHeap {
         heapify();
     }
 
+    public boolean isFull() {
+        return size == array.length;
+    }
+
     private void heapify() {
 /*        步骤:1.找到最后一个非叶子节点
         2.从后向前，对每个节点执行下潜*/
