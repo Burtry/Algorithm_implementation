@@ -2,6 +2,10 @@ package LeetCode.src.main.java.leetcode;
 
 import JavaAlgo.src.main.java.datastructure.heap.MinHeap;
 
+
+/**
+ * 求数组中第K大的元素
+ */
 public class LeetCOde215 {
     public static void main(String[] args) {
         System.out.println(new LeetCOde215().findKthLargest(new int[]{3, 2, 1, 5, 6, 4}, 2));
