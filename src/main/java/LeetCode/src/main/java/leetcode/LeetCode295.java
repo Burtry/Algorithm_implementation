@@ -7,6 +7,7 @@ package LeetCode.src.main.java.leetcode;
 import LeetCode.src.main.java.leetcode.structure.Heap;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * 为了保证两边数据量的平衡
@@ -57,6 +58,7 @@ public class LeetCode295 {
 
         LeetCode295 text = new LeetCode295();
 
+        PriorityQueue<Integer> left = new PriorityQueue<>((a,b) -> Integer.compare(b,a));
         text.addNum(1);
         text.addNum(2);
         text.addNum(3);
