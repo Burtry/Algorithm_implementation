@@ -9,6 +9,7 @@ public class TreeTraversal {
                 new TreeNode(new TreeNode(5), 3, new TreeNode(6))
         );
 
+
         preOrder(root);
         System.out.println();
         inOrder(root);
