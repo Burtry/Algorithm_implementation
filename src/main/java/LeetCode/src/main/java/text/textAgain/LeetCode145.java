@@ -1,4 +1,4 @@
-package LeetCode.src.main.java.leetcode;
+package LeetCode.src.main.java.text.textAgain;
 
 import LeetCode.src.main.java.leetcode.Node.TreeNode;
 
@@ -18,45 +18,29 @@ public class LeetCode145 {
 
         LinkedList<TreeNode> stack = new LinkedList<>();  //创建栈用于存储来时的路
 
-        TreeNode curr = root; // 代表当前节点
+        TreeNode curr = root;   //记录当前节点
         TreeNode pop = null; // 最近一次弹栈的元素
-        while (!stack.isEmpty() || curr != null) {
 
-            //处理左子树
-
+        while (curr != null || !stack.isEmpty()) {
             if (curr != null) {
-                //压入栈
                 stack.push(curr);
-                // 待处理左子树
-                System.out.println("前:" + curr.val);
                 curr = curr.left;
-
-            }
-
-            //处理右子树
-
-            else {
+                //前
+            } else {
                 TreeNode peek = stack.peek();
-                // 没有右子树
                 if (peek.right == null) {
-                    System.out.println("中:" + peek.val);
+                    //中
                     pop = stack.pop();
-                    System.out.println("后:" + pop.val);
-                }
-                // 右子树处理完成
-                else if (peek.right == pop) {
+                    //后
+                } else if (peek == pop) {
                     pop = stack.pop();
-                    System.out.println("后:" + pop.val);
-                }
-                // 待处理右子树
-                else {
-                    System.out.println("中:" + peek.val);
+                } else {
+                    //中
                     curr = peek.right;
                 }
             }
         }
     }
-
 
 
 }
