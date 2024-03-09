@@ -21,12 +21,20 @@ public class LeetCode145 {
         TreeNode curr = root; // 代表当前节点
         TreeNode pop = null; // 最近一次弹栈的元素
         while (!stack.isEmpty() || curr != null) {
+
+            //处理左子树
+
             if (curr != null) {
                 stack.push(curr);
                 // 待处理左子树
                 System.out.println("前:" + curr.val);
                 curr = curr.left;
-            } else {
+
+            }
+
+            //处理右子树
+
+            else {
                 TreeNode peek = stack.peek();
                 // 没有右子树
                 if (peek.right == null) {
