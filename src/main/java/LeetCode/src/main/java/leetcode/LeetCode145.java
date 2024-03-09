@@ -5,7 +5,7 @@ import LeetCode.src.main.java.leetcode.Node.TreeNode;
 import java.util.LinkedList;
 
 /**
- * 二叉树后续序遍历
+ * 二叉树前中后序遍历统一写法
  */
 public class LeetCode145 {
 
@@ -18,24 +18,33 @@ public class LeetCode145 {
 
         LinkedList<TreeNode> stack = new LinkedList<>();  //创建栈用于存储来时的路
 
-        TreeNode curr = root;   //记录当前节点
-        TreeNode pop = null;    //记录栈顶元素
-        while (curr != null || !stack.isEmpty()) {
+        TreeNode curr = root; // 代表当前节点
+        TreeNode pop = null; // 最近一次弹栈的元素
+        while (!stack.isEmpty() || curr != null) {
             if (curr != null) {
-                //System.out.println("来" + curr.val);
                 stack.push(curr);
+                // 待处理左子树
+                System.out.println("前:" + curr.val);
                 curr = curr.left;
-            }
-            else {
+            } else {
                 TreeNode peek = stack.peek();
-                if (peek.right == null || peek.right == pop) {
+                // 没有右子树
+                if (peek.right == null) {
+                    System.out.println("中:" + peek.val);
                     pop = stack.pop();
-                    System.out.println("回" + pop.val);
-                } else {
+                    System.out.println("后:" + pop.val);
+                }
+                // 右子树处理完成
+                else if (peek.right == pop) {
+                    pop = stack.pop();
+                    System.out.println("后:" + pop.val);
+                }
+                // 待处理右子树
+                else {
+                    System.out.println("中:" + peek.val);
                     curr = peek.right;
                 }
             }
-
         }
     }
 
