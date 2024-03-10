@@ -5,7 +5,7 @@ import JavaAlgo.src.main.java.datastructure.stack.ArrayStack;
 /**
  * 有效的括号
  */
-public class LeetCode20 {
+public class LeetCode20_1 {
 
     public boolean isValid(String s) {
         ArrayStack<Character> stack = new ArrayStack<>(s.length());
@@ -60,7 +60,7 @@ public class LeetCode20 {
 
     public static void main(String[] args) {
 
-        LeetCode20 s = new LeetCode20();
+        LeetCode20_1 s = new LeetCode20_1();
         System.out.println(s.isValid("([{}])"));
         System.out.println(s.isValid("()[]{}"));
         System.out.println(s.isValid("()"));
