@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class LeetCode189 {
 
     /**
-     * [1,2,3,4,5,6,7]
+     * [1,2,3,4,5,6,7] 原
      * [7,1,2,3,4,5,6]
      * [6,7,1,2,3,4,5]
-     * [5,6,7,1,2,3,4]
+     * [5,6,7,1,2,3,4] 目标
      */
 
     public static void main(String[] args) {
@@ -16,8 +16,9 @@ public class LeetCode189 {
         //rotate(nums,3);
         //System.out.println(Arrays.toString(nums));
 
-        System.out.println("------------");
-        rotate2(nums,3);
+        //System.out.println("------------");
+        //rotate2(nums,3);
+        rotate3(nums,3);
     }
 
     public static void rotate(int[] nums, int k) {
@@ -53,6 +54,19 @@ public class LeetCode189 {
             }
             nums[0] = end;
         }
+    }
+
+    //[1,2,3,4,5,6,7]
+    //[5,6,7,1,2,3,4]
+    //借助新数组
+    public static void rotate3(int[] nums, int k) {
+        int n = nums.length;
+        int[] newNums = new int[n];
+        for (int i = 0; i < n; i++) {
+            newNums[(i + k) % n] = nums[i];
+        }
+        nums = Arrays.copyOfRange(newNums,0,n);
+        System.out.println(Arrays.toString(nums));
     }
 
 }
