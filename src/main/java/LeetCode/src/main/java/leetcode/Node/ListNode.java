@@ -15,6 +15,11 @@ public class ListNode {
     public ListNode() {
     }
 
+    public ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(64);
