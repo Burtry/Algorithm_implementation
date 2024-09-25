@@ -9,13 +9,13 @@ public class MaxHeap {
 
     private final int[] heap;  //存储堆的数组
     private int size;   //堆的大小
-
-    private static final int CAPACITY = 16; //定义最大容量为16
-
+    private int capacity;   //堆容量
 
     public MaxHeap(int[] array) {
-        this.heap = array;
+        this.heap = new int[array.length * 2];
         this.size = array.length;
+        this.capacity = heap.length;
+        System.arraycopy(array,0,heap,0,array.length);
         buildHeap();
     }
 
@@ -34,6 +34,10 @@ public class MaxHeap {
     //获取右子节点的下标
     private int right(int i) {
         return i * 2 + 2;
+    }
+
+    private int parent(int i) {
+        return ( i - 1 ) / 2;
     }
 
     private void buildHeap() {
@@ -66,24 +70,67 @@ public class MaxHeap {
         }
     }
 
-    //public void insert(int value) {
-    //    if (size == CAPACITY) {
-    //        throw new RuntimeException("堆已满");
-    //    }
-    //
-    //    heap[size] = value;
-    //    int current = size;
-    //    size++;
-    //
-    //    //上浮操作
-    //    while (current > 0 && heap[current] > heap[])
-    //
-    //}
+    public void insert(int value) {
+        if (size == capacity) {
+            throw new RuntimeException("堆已满");
+        }
+
+        heap[size] = value;
+        int current = size;
+        size++;
+
+        //上浮操作
+        while (current > 0 && heap[current] > heap[parent(current)]){
+            //与父节点交换
+            swap(current,parent(current));
+            //让当前节点设为父节点的索引
+            current = parent(current);
+        }
+
+    }
+
+
+    public int delMax() {
+        int max = heap[0];
+
+        heap[0] = heap[size - 1];
+        size--;
+        heapify(0);
+
+        return max;
+    }
+
+
+    public void heapSort() {
+        //记录原始堆大小
+        int originalSize = size;
+
+        for (int i = size - 1; i >=0 ; i--) {
+            swap(0,i);
+            size --;
+            heapify(0);
+        }
+        size = originalSize;
+    }
 
     public static void main(String[] args) {
-        int[] array = {3,19,1,14,8,7};
+        int[] array = {1,2,3,4,5,6,7,8};
 
         MaxHeap maxHeap = new MaxHeap(array);
         System.out.println(Arrays.toString(maxHeap.heap));
+        maxHeap.insert(2);
+
+        System.out.println(Arrays.toString(maxHeap.heap));
+
+        int max = maxHeap.delMax();
+
+        System.out.println("max: " + max);
+        System.out.println(Arrays.toString(maxHeap.heap));
+
+        System.out.println("堆排序后：");
+        maxHeap.heapSort();
+        System.out.println(Arrays.toString(maxHeap.heap));
+        System.out.println(maxHeap.size);
+
     }
 }
