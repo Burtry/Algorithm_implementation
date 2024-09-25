@@ -118,19 +118,7 @@ public class MaxHeap {
 
         MaxHeap maxHeap = new MaxHeap(array);
         System.out.println(Arrays.toString(maxHeap.heap));
-        maxHeap.insert(2);
-
+        maxHeap.insert(19);
         System.out.println(Arrays.toString(maxHeap.heap));
-
-        int max = maxHeap.delMax();
-
-        System.out.println("max: " + max);
-        System.out.println(Arrays.toString(maxHeap.heap));
-
-        System.out.println("堆排序后：");
-        maxHeap.heapSort();
-        System.out.println(Arrays.toString(maxHeap.heap));
-        System.out.println(maxHeap.size);
-
     }
 }
