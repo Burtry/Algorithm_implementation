@@ -7,6 +7,11 @@ import java.util.Stack;
  */
 public class LeetCode20 {
 
+    /**
+     * 利用栈的特性进行求解
+     * @param args
+     */
+
     public static void main(String[] args) {
         String test = "{{{}}}";
         System.out.println(isValid(test));
