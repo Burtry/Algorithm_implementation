@@ -1,6 +1,6 @@
 package JavaAlgo.src.main.java.datastructure.priorityqueue;
 
-public class Entry implements Priority {
+public class Entry<S, I extends Number> implements Priority {
 
     String value;
     int priority;
@@ -29,7 +29,7 @@ public class Entry implements Priority {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Entry entry = (Entry) o;
+        Entry<S, Number> entry = (Entry<S, Number>) o;
 
         return priority == entry.priority;
     }

@@ -3,7 +3,7 @@ package LeetCode.src.main.java.common;
 import java.util.Arrays;
 
 /**
- * 最大堆，创建的是一个传入一个数组，然后转换成最大堆的形式
+ * 最大堆，创建的是一个传入一个数组，然后转换成最大堆的形式,添加添加元素，删除最大元素等功能。
  */
 public class MaxHeap {
 
@@ -118,7 +118,7 @@ public class MaxHeap {
 
         MaxHeap maxHeap = new MaxHeap(array);
         System.out.println(Arrays.toString(maxHeap.heap));
-        maxHeap.insert(2);
+        maxHeap.insert(6);
 
         System.out.println(Arrays.toString(maxHeap.heap));
 

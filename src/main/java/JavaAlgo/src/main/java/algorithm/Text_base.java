@@ -10,8 +10,8 @@ public class Text_base {
         System.out.println(content1);
         System.out.println(content);
         int[] arr2 = {1, 2, 5, 65, 7, 32};
-//        BubbleSort(arr2);
-        SelectSort(arr2);
+        BubbleSort(arr2);
+        //SelectSort(arr2);
     }
 
     //二分查找
@@ -93,6 +93,7 @@ public class Text_base {
             }
         }
         System.out.println(Arrays.toString(arr));
+
     }
 }
 
